@@ -10,6 +10,8 @@ import { LogSignSharedService } from '../~services/login-signup.service';
 
 @Component({
   selector: 'signup-modal',
+  standalone: true,
+  imports: [ReactiveFormsModule, FormsModule],
   templateUrl: './signup-modal.component.html',
   styleUrls: ['./signup-modal.component.css'],
 })

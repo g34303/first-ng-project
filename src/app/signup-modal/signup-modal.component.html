@@ -7,7 +7,7 @@
       src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
       id="login-modal-txsam"
     />
-    <form class="login-form">
+    <form [formGroup]="signinForm" class="login-form">
       <label class="username-lbl">Username</label>
       <input type="text" formControlName="username" class="username" />
       <label class="password-lbl">Password</label>
