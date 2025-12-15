@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+button {
+  border: 0px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.lexend {
+  font-family: 'Lexend', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.login-wrapper {
+  font-family: 'Lexend', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen */
+}
+
+.login-btn-header1 {
+  font-family: 'Lexend', sans-serif;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  background-color: #eb6d9a;
+  border-radius: 5px;
+}
+
+.stripes-vertical {
+  background: repeating-linear-gradient(
+    to right,
+    #a0c4ff,
+    #a0c4ff 20px,
+    #cddffb 20px,
+    #cddffb 40px
+  );
+}
+
+.tuxedo-sam-btn {
+  position: fixed;
+  background-color: rgba(0, 0, 255, 0);
+  border: 0px;
+  transform: scale(2);
+}
+
+#login-txsam {
+  max-height: 100px;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}

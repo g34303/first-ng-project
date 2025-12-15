@@ -1,0 +1,18 @@
+<div class="modal">
+  <div class="modal-content">
+    <button class="close-button" (click)="ls.closeSigninModal(); ls.buttonClick()">X</button>
+    <img src="https://dabonsym.com/wp-content/uploads/2025/12/Tuxedo_Sam_2-min.png" id="tx-logo" />
+    <h2 id="modal-h2">SIGNUP</h2>
+    <img
+      src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
+      id="login-modal-txsam"
+    />
+    <form class="login-form">
+      <label class="username-lbl">Username</label>
+      <input type="text" formControlName="username" class="username" />
+      <label class="password-lbl">Password</label>
+      <input type="password" formControlName="password" class="password" />
+      <button type="submit" [disabled]="!signinForm.valid" class="login-btn">Next</button>
+    </form>
+  </div>
+</div>

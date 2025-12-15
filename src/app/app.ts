@@ -1,12 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { LoginButtonComponent } from './login-modal/login-modal.component';
+import { SignUpComponent } from './signup-modal/signup-modal.component';
+import { LogSignSharedService } from './~services/login-signup.service';
+import { KeyTriggerService } from './~services/keytrigger.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [LoginButtonComponent, SignUpComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
-export class App {
+export class AppComponent {
   protected readonly title = signal('first-ng-project');
+  constructor(public ls: LogSignSharedService, public keyTrigger: KeyTriggerService) {}
 }
