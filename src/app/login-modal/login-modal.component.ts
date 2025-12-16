@@ -58,6 +58,7 @@ export class LoginButtonComponent {
         alert(this.ls.loginMessage);
       },
     });
+    console.log('button clicked');
   }
 
   loginSuccessCheck() {
