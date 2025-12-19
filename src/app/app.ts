@@ -14,8 +14,4 @@ import { KeyTriggerService } from './~services/keytrigger.service';
 export class AppComponent {
   protected readonly title = signal('first-ng-project');
   constructor(public ls: LogSignSharedService, public keyTrigger: KeyTriggerService) {}
-
-  backTickStatus() {
-    console.log(this.keyTrigger.backTickHeld());
-  }
 }

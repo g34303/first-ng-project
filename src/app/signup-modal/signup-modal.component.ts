@@ -29,10 +29,6 @@ export class SignUpComponent {
     password: new FormControl('', Validators.required),
   });
 
-  backTickStatus() {
-    console.log(this.keyTrigger.backTickHeld());
-  }
-
   onSubmit() {
     const username = this.signinForm.value.username!;
     const password = this.signinForm.value.password!;
