@@ -52,6 +52,7 @@ export class LoginButtonComponent {
         this.ls.loginMessage = 'Login successful!';
         this.ls.openSuccessModal();
         this.ls.closeLoginModal();
+        this.ls.fireConfetti();
       },
       error: (err) => {
         console.log(err);

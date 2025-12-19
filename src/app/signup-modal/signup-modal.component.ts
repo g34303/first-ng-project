@@ -43,6 +43,7 @@ export class SignUpComponent {
       next: () => {
         this.ls.openSuccessModal();
         this.ls.closeSigninModal();
+        this.ls.fireConfetti();
       },
     });
     console.log(this.signinForm.value);

@@ -50,4 +50,10 @@ export class LogSignSharedService {
     // this.closeLoginModal();
     this.openSigninModal();
   }
+
+  confettiTrigger = signal(0);
+
+  fireConfetti() {
+    this.confettiTrigger.update((v) => v + 1);
+  }
 }

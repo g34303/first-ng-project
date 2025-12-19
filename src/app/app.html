@@ -16,6 +16,7 @@
   <div class="backdrop"></div>
   <signup-modal></signup-modal>
   } @if (ls.isSuccessModalOpen()){
+  <canvas id="confetti"></canvas>
   <div class="modal">
     <div class="modal-content">
       <button class="close-button" (click)="ls.closeSuccessModal(); ls.buttonClick()">X</button>
