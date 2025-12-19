@@ -37,11 +37,12 @@ export class SignUpComponent {
 
     this.auth.register(username!, password!, passConfirm!).subscribe({
       // next and err actually checks backend to see if register was successful
-      next: () => {
-        alert('You have successfully registered!');
-      },
       error: (err) => {
         alert(err.error?.message || 'Registration failed');
+      },
+      next: () => {
+        this.ls.openSuccessModal();
+        this.ls.closeSigninModal();
       },
     });
     console.log(this.signinForm.value);

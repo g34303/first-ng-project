@@ -50,7 +50,8 @@ export class LoginButtonComponent {
       next: (res) => {
         console.log(res);
         this.ls.loginMessage = 'Login successful!';
-        alert(this.ls.loginMessage);
+        this.ls.openSuccessModal();
+        this.ls.closeLoginModal();
       },
       error: (err) => {
         console.log(err);
@@ -61,5 +62,6 @@ export class LoginButtonComponent {
 
   loginSuccessCheck() {
     alert(this.ls.loginMessage);
+    console.log(this.ls.loginMessage);
   }
 }

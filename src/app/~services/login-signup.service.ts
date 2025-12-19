@@ -8,6 +8,7 @@ import { KeyTriggerService } from './keytrigger.service';
 export class LogSignSharedService {
   isLoginModalOpen = signal(false);
   isSigninModalOpen = signal(false);
+  isSuccessModalOpen = signal(false);
   isTyped = false;
   isClicked = false;
   loginMessage: string = '';
@@ -34,6 +35,13 @@ export class LogSignSharedService {
   }
   closeSigninModal() {
     this.isSigninModalOpen.set(false);
+  }
+
+  openSuccessModal() {
+    this.isSuccessModalOpen.set(true);
+  }
+  closeSuccessModal() {
+    this.isSuccessModalOpen.set(false);
   }
 
   handleRegister() {
