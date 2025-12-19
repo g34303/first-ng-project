@@ -84,6 +84,29 @@ app.get('/users', (req, res) => {
   res.json(users);
 });
 
+db.get(
+  'SELECT * FROM users WHERE username = ? AND password = ?',
+  [username, password],
+  (err, user) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ success: false });
+    }
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid username',
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Login successful',
+    });
+  }
+);
+
 // Delete user by ID
 app.delete('/users/:id', (req, res) => {
   const id = req.params.id;
