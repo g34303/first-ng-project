@@ -118,3 +118,8 @@ button:disabled {
   align-items: center;
   flex-direction: column;
 }
+
+#login-message {
+  color: red;
+  font-weight: 500;
+}

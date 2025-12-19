@@ -55,7 +55,6 @@ export class LoginButtonComponent {
       error: (err) => {
         console.log(err);
         this.ls.loginMessage = 'Invalid username or password.';
-        alert(this.ls.loginMessage);
       },
     });
     console.log('button clicked');

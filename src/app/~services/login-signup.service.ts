@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
+import { KeyTriggerService } from './keytrigger.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,8 @@ export class LogSignSharedService {
   loginMessage: string = '';
   clickRegister = false;
 
+  constructor(public keyTrigger: KeyTriggerService) {}
+
   buttonClick() {
     this.isClicked = !this.isClicked;
   }
@@ -21,6 +24,7 @@ export class LogSignSharedService {
   }
   closeLoginModal() {
     this.isLoginModalOpen = signal(false);
+    this.loginMessage = '';
   }
 
   openSigninModal() {
@@ -28,10 +32,12 @@ export class LogSignSharedService {
   }
   closeSigninModal() {
     this.isSigninModalOpen = signal(false);
+    this.keyTrigger.backTickHeld = signal(false);
   }
 
   handleRegister() {
     this.clickRegister = true;
+    this.keyTrigger.backTickHeld = signal(false);
     // this.closeLoginModal();
     this.openSigninModal();
     console.log('Registration clicked');

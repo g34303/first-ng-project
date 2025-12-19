@@ -2,7 +2,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 </style>
 <div class="login-wrapper stripes-vertical">
-  <button (click)="ls.openLoginModal()" class="tuxedo-sam-btn">
+  <button (click)="ls.openLoginModal(); backTickStatus()" class="tuxedo-sam-btn">
     <img
       src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
       id="login-txsam"
@@ -10,12 +10,11 @@
     <h2 class="login-btn-header1">LOGIN</h2>
   </button>
   @if (ls.isLoginModalOpen()) {
-  <div class="backdrop">
-    <login-modal></login-modal>
-    @if (ls.isSigninModalOpen()) {
-    <signup-modal></signup-modal>
-    }
-  </div>
+  <div class="backdrop"></div>
+  <login-modal></login-modal>
+  } @if (ls.isSigninModalOpen() && keyTrigger.showSecret()) {
+  <div class="backdrop"></div>
+  <signup-modal></signup-modal>
   }
 </div>
 <!-- <router-outlet /> -->
