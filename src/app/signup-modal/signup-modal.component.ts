@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../~services/auth.service';
 import { LogSignSharedService } from '../~services/login-signup.service';
+import { KeyTriggerService } from '../~services/keytrigger.service';
 
 @Component({
   selector: 'signup-modal',
@@ -17,7 +18,11 @@ import { LogSignSharedService } from '../~services/login-signup.service';
   styleUrls: ['./signup-modal.component.css'],
 })
 export class SignUpComponent {
-  constructor(private auth: AuthService, public ls: LogSignSharedService) {}
+  constructor(
+    private auth: AuthService,
+    public keyTrigger: KeyTriggerService,
+    public ls: LogSignSharedService
+  ) {}
 
   signinForm = new FormGroup({
     username: new FormControl('', Validators.required),

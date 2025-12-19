@@ -10,12 +10,11 @@
     <h2 class="login-btn-header1">LOGIN</h2>
   </button>
   @if (ls.isLoginModalOpen()) {
-  <div class="backdrop">
-    <login-modal></login-modal>
-    @if (ls.isSigninModalOpen()) {
-    <signup-modal></signup-modal>
-    }
-  </div>
+  <div class="backdrop"></div>
+  <login-modal></login-modal>
+  } @if (ls.isSigninModalOpen()) {
+  <div class="backdrop"></div>
+  <signup-modal></signup-modal>
   }
 </div>
 <!-- <router-outlet /> -->

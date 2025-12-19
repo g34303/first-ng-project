@@ -78,7 +78,7 @@
       <div>
         <button
           id="register-button"
-          (click)="ls.handleRegister()"
+          (click)="ls.handleRegister(); ls.closeLoginModal()"
           style="cursor: pointer"
           type="button"
         >
@@ -87,6 +87,7 @@
       </div>
       }
       <button type="submit" [disabled]="!loginForm.valid" class="login-btn">Login</button>
+      <h5 id="login-message">{{ ls.loginMessage }}</h5>
     </form>
   </div>
 </div>
