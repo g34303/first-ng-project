@@ -26,6 +26,13 @@ export class AppComponent {
     this.confetti();
   }
 
+  public stopConfetti(): void {
+    if (this.confettiIntervalId !== null) {
+      clearInterval(this.confettiIntervalId);
+      this.confettiIntervalId = null;
+    }
+  }
+
   private confettiIntervalId: number | null = null;
 
   confetti(): void {
@@ -131,10 +138,6 @@ export class AppComponent {
     };
 
     this.confettiIntervalId = window.setInterval(draw, 23);
-
-    // setTimeout(() => {
-    //   this.stopConfetti();
-    // }, this.confettiDurationMs);
 
     window.addEventListener('resize', () => {
       W = window.innerWidth;

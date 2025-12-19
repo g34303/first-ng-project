@@ -19,7 +19,12 @@
   <canvas id="confetti"></canvas>
   <div class="modal">
     <div class="modal-content">
-      <button class="close-button" (click)="ls.closeSuccessModal(); ls.buttonClick()">X</button>
+      <button
+        class="close-button"
+        (click)="ls.closeSuccessModal(); ls.buttonClick(); stopConfetti()"
+      >
+        X
+      </button>
       <h2>Success!</h2>
       <img
         src="https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-tuxedo-sam-surprise-ezgif.com-optimize-1.gif"
