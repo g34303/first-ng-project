@@ -22,12 +22,15 @@ export class SignUpComponent {
   signinForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    passConfirm: new FormControl('', Validators.required),
   });
 
   onSubmit() {
     const username = this.signinForm.value.username!;
     const password = this.signinForm.value.password!;
-    this.auth.register(username!, password!).subscribe({
+    const passConfirm = this.signinForm.value.passConfirm!;
+
+    this.auth.register(username!, password!, passConfirm!).subscribe({
       // next and err actually checks backend to see if register was successful
       next: () => {
         alert('You have successfully registered!');
@@ -36,5 +39,6 @@ export class SignUpComponent {
         alert(err.error?.message || 'Registration failed');
       },
     });
+    console.log(this.signinForm.value);
   }
 }

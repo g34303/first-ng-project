@@ -12,6 +12,8 @@
       <input type="text" formControlName="username" class="username" />
       <label class="password-lbl">Password</label>
       <input type="password" formControlName="password" class="password" />
+      <label class="password-lbl">Confirm Password</label>
+      <input type="password" formControlName="passConfirm" class="password" />
       <button type="submit" [disabled]="!signinForm.valid" class="login-btn">Next</button>
     </form>
   </div>

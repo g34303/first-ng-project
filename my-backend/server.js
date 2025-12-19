@@ -4,13 +4,6 @@ const sqlite3 = require('sqlite3').verbose();
 
 const app = express();
 const port = 3000;
-const users = [
-  {
-    id: 1,
-    username: 'testuser',
-    password: '1234',
-  },
-];
 
 // Middleware
 app.use(cors());
@@ -18,6 +11,14 @@ app.use(express.json());
 
 // Create / open database file
 const db = new sqlite3.Database('./mydb.sqlite');
+
+// Create table if it doesn't exist
+db.run(`
+  CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  password TEXT)
+  `);
 
 // Start server
 app.listen(port, () => {
@@ -27,85 +28,84 @@ app.listen(port, () => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  const user = users.find((u) => u.username === username && u.password === password);
+  db.get(
+    `SELECT * FROM users WHERE username = ? AND password = ?`,
+    [username, password],
+    (err, user) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ success: false });
+      }
 
-  if (user) {
-    return res.json({
-      success: true,
-      message: 'Login successful',
-    });
-  }
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          message: 'Invalid credentials',
+        });
+      }
 
-  return res.status(401).json({
-    success: false,
-    message: 'Invalid credentials',
-  });
+      res.json({
+        success: true,
+        message: 'Login successful',
+      });
+    }
+  );
 });
 
-// app.post('/register', (req, res) => {
-//   const { username, password } = req.body;
-//   if (username && password) {
-//     return res.status(201).json({ success: true, message: 'Registration successful' });
-//   }
-//   return res.status(400).json({ success: false, message: 'Username and password required' });
-// });
 app.post('/register', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, passConfirm } = req.body;
 
-  // validate
-  if (!username || !password) {
+  if (!username || !password || !passConfirm) {
     return res.status(400).json({
       success: false,
-      message: 'Username and password required',
+      message: 'Missing field(s)',
     });
   }
 
-  // check if user exists
-  const existingUser = users.find((u) => u.username === username);
-  if (existingUser) {
-    return res.status(409).json({
+  if (password !== passConfirm) {
+    return res.status(400).json({
       success: false,
-      message: 'Username already exists',
+      message: 'Passwords do not match',
     });
   }
 
-  const newUser = {
-    id: users.length + 1,
-    username,
-    password,
-  };
+  db.run(
+    `INSERT INTO users (username, password) VALUES (?, ?)`,
+    [username, password],
+    function (err) {
+      if (err) {
+        if (err.message.includes('UNIQUE')) {
+          return res.status(409).json({
+            success: false,
+            message: 'Username already exists',
+          });
+        }
 
-  users.push(newUser);
+        console.error(err);
+        return res.status(500).json({ success: false });
+      }
 
-  res.json({ success: true, user: newUser });
+      res.status(201).json({
+        success: true,
+        user: {
+          id: this.lastID,
+          username,
+        },
+      });
+    }
+  );
 });
 
 app.get('/users', (req, res) => {
-  res.json(users);
-});
-
-db.get(
-  'SELECT * FROM users WHERE username = ? AND password = ?',
-  [username, password],
-  (err, user) => {
+  db.all(`SELECT id, username FROM users`, (err, rows) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ success: false });
+      return res.status(500).json({ error: 'Database error' });
     }
 
-    if (!user) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid username',
-      });
-    }
-
-    res.json({
-      success: true,
-      message: 'Login successful',
-    });
-  }
-);
+    res.json(rows);
+  });
+});
 
 // Delete user by ID
 app.delete('/users/:id', (req, res) => {
