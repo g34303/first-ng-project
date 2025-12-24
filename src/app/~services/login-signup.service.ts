@@ -9,10 +9,31 @@ export class LogSignSharedService {
   isLoginModalOpen = signal(false);
   isSigninModalOpen = signal(false);
   isSuccessModalOpen = signal(false);
+  isLoggedInPageOpen = signal(false);
   isTyped = false;
   isClicked = false;
   loginMessage: string = '';
   clickRegister = false;
+  username = signal<string | null>(null);
+  joinedDate = signal<Date | null>(null);
+
+  errorMessage = signal<string | null>(null);
+
+  setErrorMessage(msg: string | null) {
+    this.errorMessage.set(msg);
+  }
+
+  resetErrorMessage() {
+    this.errorMessage.set(null);
+  }
+
+  setUsername(name: string) {
+    this.username.set(name);
+  }
+
+  getJoinedDate(date: Date) {
+    this.joinedDate.set(date);
+  }
 
   constructor(public keyTrigger: KeyTriggerService) {}
 
@@ -20,6 +41,19 @@ export class LogSignSharedService {
 
   buttonClick() {
     this.isClicked = !this.isClicked;
+  }
+
+  allModalsClosed(): boolean {
+    if (
+      !this.isLoginModalOpen() &&
+      !this.isSigninModalOpen() &&
+      !this.isSuccessModalOpen() &&
+      !this.isLoggedInPageOpen()
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   openLoginModal() {
@@ -42,6 +76,14 @@ export class LogSignSharedService {
   }
   closeSuccessModal() {
     this.isSuccessModalOpen.set(false);
+  }
+
+  openLoggedInPage() {
+    this.isLoggedInPageOpen.set(true);
+  }
+
+  closeLoggedInPage() {
+    this.isLoggedInPageOpen.set(false);
   }
 
   handleRegister() {

@@ -19,11 +19,15 @@ import { LogSignSharedService } from '../~services/login-signup.service';
   styleUrls: ['./login-modal.component.css'],
 })
 export class LoginButtonComponent {
+  today: Date;
   constructor(
     private auth: AuthService,
     public keyTrigger: KeyTriggerService,
     public ls: LogSignSharedService
-  ) {}
+  ) {
+    this.today = new Date();
+    this.today.setHours(0, 0, 0, 0);
+  }
 
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -49,10 +53,11 @@ export class LoginButtonComponent {
     this.auth.login(username, password).subscribe({
       next: (res) => {
         console.log(res);
+        this.ls.setUsername(res.username);
+        this.ls.getJoinedDate(res.joinedDate);
         this.ls.loginMessage = 'Login successful!';
-        this.ls.openSuccessModal();
         this.ls.closeLoginModal();
-        this.ls.fireConfetti();
+        this.ls.openLoggedInPage();
       },
       error: (err) => {
         console.log(err);

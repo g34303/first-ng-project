@@ -38,7 +38,7 @@ export class SignUpComponent {
     this.auth.register(username!, password!, passConfirm!).subscribe({
       // next and err actually checks backend to see if register was successful
       error: (err) => {
-        alert(err.error?.message || 'Registration failed');
+        this.ls.errorMessage.set(err.error?.message);
       },
       next: () => {
         this.ls.openSuccessModal();

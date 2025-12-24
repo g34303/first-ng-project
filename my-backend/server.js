@@ -16,8 +16,9 @@ const db = new sqlite3.Database('./mydb.sqlite');
 db.run(`
   CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE,
-  password TEXT)
+  username TEXT UNIQUE COLLATE NOCASE,
+  password TEXT,
+  joinedDate TEXT DEFAULT (datetime('now')))
   `);
 
 // Start server
@@ -47,6 +48,8 @@ app.post('/login', (req, res) => {
       res.json({
         success: true,
         message: 'Login successful',
+        username: user.username,
+        joinedDate: user.joinedDate,
       });
     }
   );

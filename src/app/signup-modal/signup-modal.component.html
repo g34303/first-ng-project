@@ -15,6 +15,7 @@
       <label class="password-lbl">Confirm Password</label>
       <input type="password" formControlName="passConfirm" class="password" />
       <button type="submit" [disabled]="!signinForm.valid" class="login-btn">Next</button>
+      <h5 id="error-message">{{ this.ls.errorMessage() }}</h5>
     </form>
   </div>
 </div>

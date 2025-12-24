@@ -119,7 +119,7 @@ button:disabled {
   flex-direction: column;
 }
 
-#login-message {
+/* #login-message {
   color: red;
   font-weight: 500;
-}
+} */

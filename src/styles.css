@@ -4,3 +4,8 @@ body {
   padding: 0 !important;
   color: #003b8d;
 }
+
+#error-message {
+  color: red;
+  font-weight: 500;
+}

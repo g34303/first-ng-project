@@ -1,0 +1,60 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.35);
+  z-index: 2000;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.lexend {
+  font-family: 'Lexend', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.banner {
+  top: 0px;
+  height: 300px;
+  width: 100%;
+  background: url('https://dabonsym.com/wp-content/uploads/2025/12/wp10643539-color-corrected-min.png');
+  background-size: cover;
+  z-index: -2000;
+}
+
+.container {
+  border-radius: 15px;
+  margin-top: -15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  height: 80vh;
+  width: 100%;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  width: 40vw;
+  overflow: hidden;
+}
+
+.logout-button {
+  position: relative;
+  top: 5%;
+  left: 40%;
+  color: #ff0000;
+  background-color: #ffffff00;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1.5px solid red;
+}

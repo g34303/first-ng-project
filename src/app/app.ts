@@ -3,11 +3,12 @@ import { LoginButtonComponent } from './login-modal/login-modal.component';
 import { SignUpComponent } from './signup-modal/signup-modal.component';
 import { LogSignSharedService } from './~services/login-signup.service';
 import { KeyTriggerService } from './~services/keytrigger.service';
+import { LoggedInPageComponent } from './loggedin-page/loggedin-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LoginButtonComponent, SignUpComponent],
+  imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
