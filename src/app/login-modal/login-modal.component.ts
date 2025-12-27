@@ -36,13 +36,13 @@ export class LoginButtonComponent {
 
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key === '`') {
+    if (event.key === ',') {
       this.keyTrigger.backTickHeld.set(true);
     }
   }
   @HostListener('window:keyup', ['$event'])
   handleKeyUp(event: KeyboardEvent) {
-    if (event.key === '`') {
+    if (event.key === ',') {
       this.keyTrigger.backTickHeld.set(false);
     }
   }
@@ -56,6 +56,7 @@ export class LoginButtonComponent {
         this.ls.setUsername(res.username);
         this.ls.getJoinedDate(res.joinedDate);
         this.ls.loginMessage = 'Login successful!';
+
         this.ls.closeLoginModal();
         this.ls.openLoggedInPage();
       },

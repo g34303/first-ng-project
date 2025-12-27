@@ -34,7 +34,7 @@ button:hover {
   border-radius: 15px;
   margin-top: -15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #ffffff;
   height: 80vh;
   width: 100%;
 }
@@ -50,11 +50,54 @@ button:hover {
 
 .logout-button {
   position: relative;
-  top: 5%;
-  left: 40%;
+  margin-top: 15px;
   color: #ff0000;
   background-color: #ffffff00;
   padding: 4px;
   border-radius: 5px;
   border: 1.5px solid red;
+}
+
+.profile-pic {
+  margin-top: -75px;
+  margin-left: 5px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  z-index: 99999;
+  background-image: url('https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-nonlogged-1.png');
+  background-size: contain;
+  /* background-color: #ff0000; */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-section {
+  flex: 1;
+}
+
+.message-section {
+  flex: 3;
+  text-align: left;
+}
+
+.message-section h1 {
+  font-size: 35px; /* default 32px */
+  text-transform: capitalize;
+  margin: 0px 10px;
+  color: rgba(12, 16, 87, 0.885);
+}
+
+.message-section h5 {
+  margin: 0px 10px;
+  color: rgba(26, 30, 104, 0.527);
+  font-weight: 500;
+}
+
+.logout-section {
+  flex: 1;
 }
