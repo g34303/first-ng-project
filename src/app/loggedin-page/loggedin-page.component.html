@@ -13,7 +13,7 @@
         </div>
         <div class="message-section">
           <h1>{{ ls.username() }}</h1>
-          <h5>Member since: {{ ls.joinedDate() | date : 'MM-dd-yyyy' }}</h5>
+          <h5>Member since: {{ ls.joinedDate() | date : 'MM/dd/yyyy' }}</h5>
         </div>
         <div class="logout-section">
           <button class="logout-button lexend" (click)="ls.closeLoggedInPage()">
