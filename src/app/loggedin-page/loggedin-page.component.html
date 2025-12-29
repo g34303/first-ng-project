@@ -16,7 +16,7 @@
           <h5>Member since: {{ ls.joinedDate() | date : 'MM/dd/yyyy' }}</h5>
         </div>
         <div class="logout-section">
-          <button class="logout-button lexend" (click)="ls.closeLoggedInPage()">
+          <button class="logout-button lexend" (click)="ls.closeLoggedInPage(); logOut()">
             Log Out
             <svg
               id="Logout--Streamline-Carbon"

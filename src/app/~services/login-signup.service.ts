@@ -16,6 +16,7 @@ export class LogSignSharedService {
   clickRegister = false;
   username = signal<string | null>(null);
   joinedDate = signal<Date | null>(null);
+  loggedIn = false;
 
   errorMessage = signal<string | null>(null);
 
@@ -35,7 +36,13 @@ export class LogSignSharedService {
     this.joinedDate.set(date);
   }
 
-  constructor(public keyTrigger: KeyTriggerService) {}
+  constructor(public keyTrigger: KeyTriggerService) {
+    this.loggedIn = localStorage.getItem('loggedIn') === 'true';
+    this.username.set(localStorage.getItem('username'));
+    // local storage stores strings ONLY
+    const storedDate = localStorage.getItem('joinedDate');
+    this.joinedDate.set(storedDate ? new Date(storedDate) : null);
+  }
 
   //note: NEVER DO this.keyTrigger.backTickHeld = signal(false);
 

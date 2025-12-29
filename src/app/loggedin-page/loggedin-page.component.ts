@@ -11,4 +11,9 @@ import { LogSignSharedService } from '../~services/login-signup.service';
 })
 export class LoggedInPageComponent {
   constructor(public ls: LogSignSharedService) {}
+
+  logOut() {
+    this.ls.loggedIn = false;
+    localStorage.removeItem('loggedIn');
+  }
 }

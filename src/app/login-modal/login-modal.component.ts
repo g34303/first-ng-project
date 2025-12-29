@@ -47,16 +47,26 @@ export class LoginButtonComponent {
     }
   }
 
+  saveLoggedInData(username: string, joinedDate: Date) {
+    this.ls.loggedIn = true;
+    localStorage.setItem('loggedIn', 'true');
+    this.ls.username.set(username);
+    this.ls.joinedDate.set(joinedDate);
+    localStorage.setItem('username', username);
+    localStorage.setItem('joinedDate', joinedDate.toISOString());
+  }
+
   onSubmit() {
     const username = this.loginForm.value.username!;
     const password = this.loginForm.value.password!;
     this.auth.login(username, password).subscribe({
       next: (res) => {
+        const joinedDate = new Date(res.joinedDate);
         console.log(res);
         this.ls.setUsername(res.username);
         this.ls.getJoinedDate(res.joinedDate);
         this.ls.loginMessage = 'Login successful!';
-
+        this.saveLoggedInData(username, joinedDate);
         this.ls.closeLoginModal();
         this.ls.openLoggedInPage();
       },

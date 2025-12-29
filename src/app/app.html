@@ -2,7 +2,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 </style>
 <div class="login-wrapper stripes-vertical">
-  @if(ls.allModalsClosed()) {
+  @if (ls.loggedIn === false) { @if(ls.allModalsClosed()) {
   <button (click)="ls.openLoginModal(); ls.resetErrorMessage()" class="tuxedo-sam-btn">
     <img
       src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
@@ -33,7 +33,7 @@
       />
     </div>
   </div>
-  } @if (ls.isLoggedInPageOpen()) {
+  } } @else {
   <loggedin-page></loggedin-page>
   }
 </div>
