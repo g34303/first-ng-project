@@ -167,3 +167,9 @@ button:disabled {
   align-items: center;
   flex-direction: column;
 }
+
+.helper-text {
+  display: flex;
+  font-size: 0.75rem;
+  color: #adadad;
+}

@@ -68,9 +68,19 @@
           </div> -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <label class="username-lbl">Username</label>
-      <input type="text" formControlName="username" class="username" />
+      <input
+        type="text"
+        formControlName="username"
+        class="username"
+        (keydown.space)="$event.preventDefault()"
+      />
       <label class="password-lbl">Password</label>
-      <input type="password" formControlName="password" class="password" />
+      <input
+        type="password"
+        formControlName="password"
+        class="password"
+        (keydown.space)="$event.preventDefault()"
+      />
       <!-- <div *ngIf="keyTrigger.showSecret()" id="register-link">
               <a>Register Here</a>
             </div> -->

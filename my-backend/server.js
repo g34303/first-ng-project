@@ -3,7 +3,7 @@ const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -25,6 +25,12 @@ db.run(`
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -69,6 +75,50 @@ app.post('/register', (req, res) => {
     return res.status(400).json({
       success: false,
       message: 'Passwords do not match',
+    });
+  }
+
+  if (username.length < 3) {
+    return res.status(400).json({
+      success: false,
+      message: 'Username too short',
+    });
+  }
+
+  if (username.length > 15) {
+    return res.status(400).json({
+      success: false,
+      message: 'Username too long',
+    });
+  }
+
+  // if (password.length < 8) {
+  //   return res.status(400).json({
+  //     success: false,
+  //     message: 'Password too short',
+  //   });
+  // }
+
+  if (password.length > 64) {
+    return res.status(400).json({
+      success: false,
+      message: 'Password too long',
+    });
+  }
+
+  const usernameRegex = /^[a-zA-Z0-9]+$/;
+  if (!usernameRegex.test(username) || username.includes(' ')) {
+    return res.status(400).json({
+      success: false,
+      message: 'Username contains invalid characters',
+    });
+  }
+
+  const passwordRegex = /^[a-zA-Z0-9!@#$%&]+$/;
+  if (!passwordRegex.test(password) || password.includes(' ')) {
+    return res.status(400).json({
+      success: false,
+      message: 'Password contains invalid characters',
     });
   }
 

@@ -9,11 +9,28 @@
     />
     <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="login-form">
       <label class="username-lbl">Username</label>
-      <input type="text" formControlName="username" class="username" />
+      <input
+        type="text"
+        formControlName="username"
+        class="username"
+        (keydown.space)="$event.preventDefault()"
+      />
+      <label class="helper-text">3-15 characters alphanumeric</label>
       <label class="password-lbl">Password</label>
-      <input type="password" formControlName="password" class="password" />
+      <input
+        type="password"
+        formControlName="password"
+        class="password"
+        (keydown.space)="$event.preventDefault()"
+      />
+      <label class="helper-text">Alphanumeric and ! @ # $ % & only</label>
       <label class="password-lbl">Confirm Password</label>
-      <input type="password" formControlName="passConfirm" class="password" />
+      <input
+        type="password"
+        formControlName="passConfirm"
+        class="password"
+        (keydown.space)="$event.preventDefault()"
+      />
       <button type="submit" [disabled]="!signinForm.valid" class="login-btn">Next</button>
       <h5 id="error-message">{{ this.ls.errorMessage() }}</h5>
     </form>

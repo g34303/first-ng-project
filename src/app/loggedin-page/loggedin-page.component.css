@@ -35,7 +35,7 @@ button:hover {
   margin-top: -15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   background: #ffffff;
-  height: 80vh;
+  height: 75%;
   width: 100%;
 }
 
@@ -45,7 +45,6 @@ button:hover {
   flex-direction: column;
   height: 80vh;
   width: 40vw;
-  overflow: hidden;
 }
 
 .logout-button {
@@ -68,7 +67,7 @@ button:hover {
   background-image: url('https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-nonlogged-1.png');
   background-size: contain;
   /* background-color: #ff0000; */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .top-section {
@@ -100,4 +99,12 @@ button:hover {
 
 .logout-section {
   flex: 1;
+}
+
+.masonry-container {
+  margin-top: 5px;
+  display: flex;
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
