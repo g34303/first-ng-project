@@ -4,11 +4,12 @@ import { SignUpComponent } from './signup-modal/signup-modal.component';
 import { LogSignSharedService } from './~services/login-signup.service';
 import { KeyTriggerService } from './~services/keytrigger.service';
 import { LoggedInPageComponent } from './loggedin-page/loggedin-page.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent],
+  imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent, RouterOutlet],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })

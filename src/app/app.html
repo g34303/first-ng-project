@@ -3,16 +3,20 @@
 </style>
 <div class="login-wrapper stripes-vertical">
   @if (ls.loggedIn === false) { @if(ls.allModalsClosed()) {
-  <button (click)="ls.openLoginModal(); ls.resetErrorMessage()" class="tuxedo-sam-btn">
-    <img
-      src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
-      id="login-txsam"
-    />
-    <h2 class="login-btn-header1">LOGIN</h2>
-  </button>
+  <div class="background-wrapper">
+    <button (click)="ls.openLoginModal(); ls.resetErrorMessage()" class="tuxedo-sam-btn">
+      <img
+        src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
+        id="login-txsam"
+      />
+      <h2 class="login-btn-header1">LOGIN</h2>
+    </button>
+  </div>
   } @if (ls.isLoginModalOpen()) {
-  <div class="backdrop"></div>
-  <login-modal></login-modal>
+  <div class="background-wrapper">
+    <div class="backdrop"></div>
+    <login-modal></login-modal>
+  </div>
   } @if (ls.isSigninModalOpen()) {
   <div class="backdrop"></div>
   <signup-modal></signup-modal>
@@ -38,3 +42,5 @@
   }
 </div>
 <!-- <router-outlet /> -->
+<!--  i need to actually use router outlet not comment it OUT because right now i am just 
+  pretending to use the router /dashboard and stuff but it's not actually redirecting me-->

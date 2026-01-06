@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
@@ -23,7 +24,8 @@ export class LoginButtonComponent {
   constructor(
     private auth: AuthService,
     public keyTrigger: KeyTriggerService,
-    public ls: LogSignSharedService
+    public ls: LogSignSharedService,
+    private router: Router
   ) {
     this.today = new Date();
     this.today.setHours(0, 0, 0, 0);
@@ -68,7 +70,8 @@ export class LoginButtonComponent {
         this.ls.loginMessage = 'Login successful!';
         this.saveLoggedInData(username, joinedDate);
         this.ls.closeLoginModal();
-        this.ls.openLoggedInPage();
+        // this.ls.openLoggedInPage();
+        this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         console.log(err);

@@ -1,8 +1,8 @@
 .modal {
-  position: fixed;
-  top: 50%;
+  position: relative;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.35);
+  transform: translate(-50%, -50%) scale(1.35); */
   z-index: 2000;
   background: #fff;
   border-radius: 8px;
@@ -43,13 +43,15 @@ button:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 80vh;
-  width: 40vw;
+  /* margin-top: 250%; */
+  width: 55vw;
+  height: auto;
 }
 
 .logout-button {
   position: relative;
   margin-top: 15px;
+  left: 30px;
   color: #ff0000;
   background-color: #ffffff00;
   padding: 4px;
@@ -85,14 +87,14 @@ button:hover {
 }
 
 .message-section h1 {
-  font-size: 35px; /* default 32px */
+  font-size: 40px; /* default 32px */
   text-transform: capitalize;
-  margin: 0px 10px;
+  margin: 10px 10px;
   color: rgba(12, 16, 87, 0.885);
 }
 
 .message-section h5 {
-  margin: 0px 10px;
+  margin: 10px 10px;
   color: rgba(26, 30, 104, 0.527);
   font-weight: 500;
 }
@@ -105,6 +107,6 @@ button:hover {
   margin-top: 5px;
   display: flex;
   height: 80%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  /* overflow-x: hidden;
+  overflow-y: scroll; */
 }
