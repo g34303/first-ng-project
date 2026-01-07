@@ -18,28 +18,35 @@
     <login-modal></login-modal>
   </div>
   } @if (ls.isSigninModalOpen()) {
-  <div class="backdrop"></div>
-  <signup-modal></signup-modal>
+  <div class="background-wrapper">
+    <div class="backdrop"></div>
+    <signup-modal></signup-modal>
+  </div>
   } @if (ls.isSuccessModalOpen()){
-  <canvas id="confetti"></canvas>
-  <div class="modal">
-    <div class="modal-content">
-      <button
-        class="close-button"
-        (click)="ls.closeSuccessModal(); ls.buttonClick(); stopConfetti()"
-      >
-        X
-      </button>
-      <h2>Success!</h2>
-      <img
-        src="https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-tuxedo-sam-surprise-ezgif.com-optimize-1.gif"
-        id="success-txsam"
-      />
+  <div class="background-wrapper">
+    <canvas id="confetti"></canvas>
+    <div class="modal">
+      <div class="modal-content">
+        <button
+          class="close-button"
+          (click)="ls.closeSuccessModal(); ls.buttonClick(); stopConfetti()"
+        >
+          X
+        </button>
+        <h2>Success!</h2>
+        <img
+          src="https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-tuxedo-sam-surprise-ezgif.com-optimize-1.gif"
+          id="success-txsam"
+        />
+      </div>
     </div>
   </div>
   } } @else {
   <loggedin-page></loggedin-page>
   }
+  <div>
+    <p>© dabonsym</p>
+  </div>
 </div>
 <!-- <router-outlet /> -->
 <!--  i need to actually use router outlet not comment it OUT because right now i am just 

@@ -7,11 +7,11 @@
 <div class="lightbox" *ngIf="isOpen">
   <div class="filter" (click)="close()"></div>
 
-  <button class="close" (click)="close()">×</button>
+  <button class="close" (click)="close()"></button>
 
-  <button class="arrowl" (click)="prev()" *ngIf="currentIndex > 0">‹</button>
+  <button class="arrowl" (click)="prev()" *ngIf="currentIndex > 0"></button>
 
   <img class="lightbox-img" [src]="images[currentIndex]" />
 
-  <button class="arrowr" (click)="next()" *ngIf="currentIndex < images.length - 1">›</button>
+  <button class="arrowr" (click)="next()" *ngIf="currentIndex < images.length - 1"></button>
 </div>

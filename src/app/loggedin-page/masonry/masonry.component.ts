@@ -10,20 +10,18 @@ import { CommonModule } from '@angular/common';
 })
 export class MasonryComponent {
   images: string[] = [
-    'https://unsplash.it/700/600?image=634',
-    'https://unsplash.it/700/300?image=455',
-    'https://unsplash.it/1500/700?image=629',
-    'https://unsplash.it/700?image=594',
-    'https://unsplash.it/700/450?image=417',
-    'https://unsplash.it/700/400?image=410',
-    'https://unsplash.it/700/550?image=628',
-    'https://unsplash.it/700/450?image=421',
-    'https://unsplash.it/700/567?image=572',
-    'https://unsplash.it/700/978?image=623',
-    'https://unsplash.it/700/654?image=621',
-    'https://unsplash.it/700/500?image=423',
-    'https://unsplash.it/1000/654?image=930',
-    'https://unsplash.it/700/950?image=1045',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2501468461_TX_-1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2307549924_TX_-1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/imgi_13_zz-2507926108_TX_-1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/055107-Zoom.1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2504619507_TX_-2_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2503493775_TX_-1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/618934-Zoom.1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2505072621_TX_-1_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/4901610430255_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/TuxedoSam_MAGSAFE__Compatible_iPhone12Pro_Case_Front_SALES_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/4550624486088-2_600x.png',
+    'https://dabonsym.com/wp-content/uploads/2026/01/zz-2505072575_TX_-1_600x.png',
   ];
 
   isOpen = false;
