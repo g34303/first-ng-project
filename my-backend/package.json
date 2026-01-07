@@ -1,0 +1,15 @@
+{
+  "name": "tuxedosam-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Tuxedosam login",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "sqlite3": "^5.1.6"
+  }
+}

@@ -1,36 +1,29 @@
-const express = require('express');
-const cors = require('cors');
-const sqlite3 = require('sqlite3').verbose();
+import express from 'express';
+import cors from 'cors';
+import sqlite3 from 'sqlite3';
 
 const app = express();
-const port = process.env.PORT || 3000;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// Create / open database file
-const db = new sqlite3.Database('./mydb.sqlite');
-
-// Create table if it doesn't exist
-db.run(`
-  CREATE TABLE IF NOT EXISTS users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE COLLATE NOCASE,
-  password TEXT,
-  joinedDate TEXT DEFAULT (datetime('now')))
-  `);
-
-// Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: '*',
+    origin: ['http://localhost:4200', 'https://tuxedosamlogin.netlify.app'],
+    credentials: true,
   })
 );
+
+app.use(express.json());
+
+const db = new sqlite3.Database('./mydb.sqlite');
+
+db.run(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE COLLATE NOCASE,
+    password TEXT,
+    joinedDate TEXT DEFAULT (datetime('now'))
+  )
+`);
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -78,26 +71,12 @@ app.post('/register', (req, res) => {
     });
   }
 
-  if (username.length < 3) {
+  if (username.length < 3 || username.length > 15) {
     return res.status(400).json({
       success: false,
-      message: 'Username too short',
+      message: 'Username length invalid',
     });
   }
-
-  if (username.length > 15) {
-    return res.status(400).json({
-      success: false,
-      message: 'Username too long',
-    });
-  }
-
-  // if (password.length < 8) {
-  //   return res.status(400).json({
-  //     success: false,
-  //     message: 'Password too short',
-  //   });
-  // }
 
   if (password.length > 64) {
     return res.status(400).json({
@@ -107,7 +86,7 @@ app.post('/register', (req, res) => {
   }
 
   const usernameRegex = /^[a-zA-Z0-9]+$/;
-  if (!usernameRegex.test(username) || username.includes(' ')) {
+  if (!usernameRegex.test(username)) {
     return res.status(400).json({
       success: false,
       message: 'Username contains invalid characters',
@@ -115,7 +94,7 @@ app.post('/register', (req, res) => {
   }
 
   const passwordRegex = /^[a-zA-Z0-9!@#$%&]+$/;
-  if (!passwordRegex.test(password) || password.includes(' ')) {
+  if (!passwordRegex.test(password)) {
     return res.status(400).json({
       success: false,
       message: 'Password contains invalid characters',
@@ -160,7 +139,6 @@ app.get('/users', (req, res) => {
   });
 });
 
-// Delete user by ID
 app.delete('/users/:id', (req, res) => {
   const id = req.params.id;
 
@@ -176,4 +154,8 @@ app.delete('/users/:id', (req, res) => {
 
     res.json({ success: true, deletedID: id });
   });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
