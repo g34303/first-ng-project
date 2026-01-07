@@ -13,6 +13,8 @@ app.use(
   })
 );
 
+app.options('*', cors());
+
 app.use(express.json());
 
 const db = new sqlite3.Database('./mydb.sqlite');
