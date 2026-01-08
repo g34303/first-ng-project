@@ -180,3 +180,15 @@ h1 {
     opacity: 0.8;
   }
 } */
+
+@media screen and (max-width: 480px) {
+  .arrowr {
+    background-color: rgba(0, 0, 0, 0.692);
+    border: none;
+  }
+
+  .arrowl {
+    background-color: rgba(0, 0, 0, 0.692);
+    border: none;
+  }
+}

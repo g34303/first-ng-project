@@ -35,7 +35,7 @@ db.run(`
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  if (username === FALLBACK_USER.username && password === FALLBACK_USER.password) {
+  if (username?.toLowerCase() === FALLBACK_USER.username && password === FALLBACK_USER.password) {
     return res.json({
       success: true,
       message: 'Login successful',

@@ -146,7 +146,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  positon: relative;
+  position: relative;
   width: 50px;
   height: 75px;
   background: #eb6d9a;
