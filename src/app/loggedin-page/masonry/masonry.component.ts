@@ -30,7 +30,7 @@ export class MasonryComponent {
   open(index: number) {
     this.currentIndex = index;
     this.isOpen = true;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'auto';
   }
 
   close() {

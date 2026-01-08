@@ -118,3 +118,12 @@ button:hover {
   height: 100vh;
 }
 /* i need this so the bg stripes display properly */
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  text-align: center;
+}
