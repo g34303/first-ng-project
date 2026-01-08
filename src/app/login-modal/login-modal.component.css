@@ -92,6 +92,10 @@ button:disabled {
   margin-top: 20px;
 }
 
+.login-btn:hover {
+  background-color: rgb(0, 15, 100);
+}
+
 #login-btn1 {
   transform: scale(2);
 }
@@ -123,3 +127,9 @@ button:disabled {
   color: red;
   font-weight: 500;
 } */
+
+@media screen and (max-width: 480px) {
+  .modal {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

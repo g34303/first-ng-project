@@ -51,6 +51,7 @@ button:hover {
 
 .logout-button {
   position: relative;
+  height: 50%;
   margin-top: 15px;
   left: 30px;
   color: #ff0000;
@@ -101,6 +102,8 @@ button:hover {
 }
 
 .logout-section {
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
 
@@ -110,4 +113,19 @@ button:hover {
   /* height: 80%; */
   /* overflow-x: hidden;
   overflow-y: scroll; */
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 100vw;
+  }
+
+  .logout-button {
+    margin-top: 20%;
+    left: -10%;
+    padding: 2px;
+    height: 50%;
+    width: 100%;
+    /* transform: scale(0.75); */
+  }
 }

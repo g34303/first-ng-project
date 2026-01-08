@@ -64,6 +64,7 @@ h1 {
   transform-style: preserve-3d;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
   z-index: -1;
+  animation: scale-in 0.3s ease-out forwards, expand 0.35s 0.25s ease-out forwards;
 }
 
 [class^='arrow'] {
@@ -150,3 +151,32 @@ h1 {
   top: 0;
   left: 0;
 }
+
+/* @keyframes scale-in {
+  100% {
+    transform: translate(-50%, -50%) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes expand {
+  50% {
+    width: 350px;
+    border-radius: 20px;
+  }
+  100% {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+      0px 3px 3px -1px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+} */
