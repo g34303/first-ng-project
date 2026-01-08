@@ -5,6 +5,12 @@ import sqlite3 from 'sqlite3';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const FALLBACK_USER = {
+  username: 'user',
+  password: 'password',
+  joinedDate: '2026-01-01 00:00:00',
+};
+
 app.use(
   cors({
     origin: ['http://localhost:4200', 'https://tuxedosamlogin.netlify.app'],
@@ -28,6 +34,15 @@ db.run(`
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+
+  if (username === FALLBACK_USER.username && password === FALLBACK_USER.password) {
+    return res.json({
+      success: true,
+      message: 'Login successful',
+      username: FALLBACK_USER.username,
+      joinedDate: FALLBACK_USER.joinedDate,
+    });
+  }
 
   db.get(
     `SELECT * FROM users WHERE username = ? AND password = ?`,
