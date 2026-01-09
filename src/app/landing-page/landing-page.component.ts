@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'landing-page',
   standalone: true,
-  imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent, RouterOutlet],
+  imports: [LoginButtonComponent, SignUpComponent],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
 })

@@ -9,5 +9,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css'],
 })
 export class AppComponent {
+  constructor() {
+    console.log('APP COMPONENT CONSTRUCTED');
+  }
   protected readonly title = signal('first-ng-project');
 }
