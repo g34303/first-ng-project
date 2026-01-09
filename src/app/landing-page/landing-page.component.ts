@@ -7,7 +7,7 @@ import { LoggedInPageComponent } from '../loggedin-page/loggedin-page.component'
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'landing-page',
   standalone: true,
   imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent, RouterOutlet],
   templateUrl: './landing-page.component.html',
