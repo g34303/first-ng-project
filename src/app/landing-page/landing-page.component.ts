@@ -15,6 +15,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class LandingPageComponent {
   constructor(public ls: LogSignSharedService, public keyTrigger: KeyTriggerService) {
+    console.log(ls.loggedIn);
     effect(() => {
       this.ls.confettiTrigger();
       setTimeout(() => {
