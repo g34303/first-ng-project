@@ -4,17 +4,17 @@ import { SignUpComponent } from '../signup-modal/signup-modal.component';
 import { LogSignSharedService } from '../~services/login-signup.service';
 import { KeyTriggerService } from '../~services/keytrigger.service';
 import { LoggedInPageComponent } from '../loggedin-page/loggedin-page.component';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'landing-page',
   standalone: true,
-  imports: [LoginButtonComponent, SignUpComponent],
+  imports: [LoginButtonComponent, SignUpComponent, LoggedInPageComponent],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent {
   constructor(public ls: LogSignSharedService, public keyTrigger: KeyTriggerService) {
+    console.log(ls.loggedIn);
     effect(() => {
       this.ls.confettiTrigger();
       setTimeout(() => {
