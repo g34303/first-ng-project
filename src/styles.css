@@ -11,3 +11,7 @@ body {
   color: red;
   font-weight: 500;
 }
+
+button:hover {
+  cursor: pointer;
+}

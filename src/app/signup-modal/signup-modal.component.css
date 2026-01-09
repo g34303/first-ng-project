@@ -25,10 +25,6 @@
   );
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 button:disabled {
   background-color: rgb(224, 224, 224);
   color: rgb(172, 172, 172);

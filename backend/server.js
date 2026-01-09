@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const FALLBACK_USER = {
   username: 'user',
-  password: 'password',
+  password: 'pass',
   joinedDate: '2026-01-01 00:00:00',
 };
 

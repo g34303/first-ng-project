@@ -51,6 +51,7 @@ export class LoginButtonComponent {
 
   saveLoggedInData(username: string, joinedDate: Date) {
     this.ls.loggedIn = true;
+    this.router.navigate(['/dashboard']);
     localStorage.setItem('loggedIn', 'true');
     this.ls.username.set(username);
     this.ls.joinedDate.set(joinedDate);
