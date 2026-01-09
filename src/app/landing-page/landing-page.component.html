@@ -1,0 +1,59 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+</style>
+<div class="login-wrapper stripes-vertical">
+  @if (ls.loggedIn === false) { @if(ls.allModalsClosed()) {
+  <div class="background-wrapper">
+    <button (click)="ls.openLoginModal(); ls.resetErrorMessage()" class="tuxedo-sam-btn">
+      <img
+        src="https://dabonsym.com/wp-content/uploads/2025/12/List-Tuxedo-min.png"
+        id="login-txsam"
+      />
+      <h2 class="login-btn-header1">LOGIN</h2>
+    </button>
+  </div>
+  } @if (ls.isLoginModalOpen()) {
+  <div class="background-wrapper">
+    <div class="backdrop"></div>
+    <div class="login-content-wrapper">
+      <login-modal></login-modal>
+      <div class="container">
+        <div class="rectangle">
+          <div class="notification-text">
+            <!-- <i class="material-icons">info</i> -->
+            <span
+              >&nbsp;&nbsp;<span style="font-weight: 600">Demo Login</span>
+              <br />&nbsp;&nbsp;Username: user<br />&nbsp;&nbsp;Password: password</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @if (ls.isSigninModalOpen()) {
+  <div class="background-wrapper">
+    <div class="backdrop"></div>
+    <signup-modal></signup-modal>
+  </div>
+  } @if (ls.isSuccessModalOpen()){
+  <div class="background-wrapper">
+    <canvas id="confetti"></canvas>
+    <div class="modal">
+      <div class="modal-content">
+        <button
+          class="close-button"
+          (click)="ls.closeSuccessModal(); ls.buttonClick(); stopConfetti()"
+        >
+          X
+        </button>
+        <h2>Success!</h2>
+        <img
+          src="https://dabonsym.com/wp-content/uploads/2025/12/tuxedo-sam-tuxedo-sam-surprise-ezgif.com-optimize-1.gif"
+          id="success-txsam"
+        />
+      </div>
+    </div>
+  </div>
+  } }
+  <p class="footer">© dabonsym</p>
+</div>
